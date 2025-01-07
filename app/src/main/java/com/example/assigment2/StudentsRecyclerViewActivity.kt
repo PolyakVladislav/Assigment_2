@@ -18,8 +18,6 @@ import com.example.assigment2.model.Student
 class StudentsRecyclerViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        var students: MutableList<Student>? = null
-
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_students_recycler_view)
@@ -30,12 +28,11 @@ class StudentsRecyclerViewActivity : AppCompatActivity() {
         }
 
 
-
-        students = Model.shared.students
+        val students: MutableList<Student> = Model.shared.students
         val recyclerView: RecyclerView = findViewById(R.id.students_recycler_view)
         recyclerView.setHasFixedSize(true)
 
-        var layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
 
         val adapter = StudentsRecyclerAdapter(students)
@@ -45,10 +42,10 @@ class StudentsRecyclerViewActivity : AppCompatActivity() {
     class StudentViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
 
-        var nameTextView: TextView? = null
-        var idTextView: TextView? = null
-        var checkBox: CheckBox? = null
-        var student: Student? = null
+        private var nameTextView: TextView? = null
+        private var idTextView: TextView? = null
+        private var checkBox: CheckBox? = null
+        private var student: Student? = null
 
         init {
             nameTextView = itemView.findViewById(R.id.student_row_name_view)
@@ -57,7 +54,7 @@ class StudentsRecyclerViewActivity : AppCompatActivity() {
 
             checkBox?.apply{
                 setOnClickListener{ view ->
-                    (tag as? Int)?.let{ tag ->
+                    (tag as? Int)?.let{
                         student?.isChecked = (view as? CheckBox)?.isChecked ?: false
                     }
                 }
