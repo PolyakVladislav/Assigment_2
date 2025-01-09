@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/activity_add_student_root"
+    android:padding="16dp">
+    <ImageView
+        android:id="@+id/student_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/avatar"
+        android:contentDescription="Student Image"/>
+
+    <!-- Name Field -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/input_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <!-- ID Field -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student ID"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"/>
+    <EditText
+        android:id="@+id/input_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Student ID"
+        android:inputType="number"/>
+
+    <!-- Phone Field -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"/>
+    <EditText
+        android:id="@+id/input_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Phone Number"
+        android:inputType="phone"/>
+
+    <!-- Address Field -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"/>
+    <EditText
+        android:id="@+id/input_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Address"
+        android:inputType="textPostalAddress"/>
+
+    <!-- Checked Checkbox -->
+    <CheckBox
+        android:id="@+id/input_checked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checked"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_marginTop="16dp"/>
+    <!-- Cancle Button -->
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>
