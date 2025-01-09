@@ -1,5 +1,6 @@
 package com.example.assigment2
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.example.assigment2.model.Model
 import com.example.assigment2.model.Student
 
 class StudentsRecyclerViewActivity : AppCompatActivity() {
+    var adapter = StudentsRecyclerAdapter(Model.shared.students)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -35,9 +37,18 @@ class StudentsRecyclerViewActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
 
-        val adapter = StudentsRecyclerAdapter(students)
+        adapter = StudentsRecyclerAdapter(students)
         recyclerView.adapter = adapter
 
+        val addStudentButton = findViewById<View>(R.id.add_student_button)
+        addStudentButton?.setOnClickListener {
+            val intent = Intent(this, Add_Student_Activity::class.java)
+            startActivity(intent)
+        }
+    }
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged()
     }
     class StudentViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
@@ -87,6 +98,7 @@ class StudentsRecyclerViewActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
             holder.bind(students?.get(position),position)
         }
+
 
     }
 }

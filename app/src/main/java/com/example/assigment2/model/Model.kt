@@ -1,6 +1,9 @@
 package com.example.assigment2.model
 
 class Model private constructor(){
+    fun addStudent(student: Student) {
+        students.add(student)
+    }
 
     var students: MutableList<Student> = ArrayList()
 
@@ -13,8 +16,9 @@ class Model private constructor(){
             val student = Student(
                 name = "Name Dor La Gaz $i",
                 id = "Srudent ID: $i",
-                avatarUrl = "",
-                isChecked = false
+                isChecked = false,
+                phone = "Phone: 1234567890",
+                address = "Address: 1234 Main St"
             )
             students.add(student)
         }
