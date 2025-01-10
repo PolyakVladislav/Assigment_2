@@ -43,7 +43,7 @@ class Add_Student_Activity : AppCompatActivity() {
             val id = findViewById<EditText>(R.id.input_id).text.toString()
             val phone = findViewById<EditText>(R.id.input_phone).text.toString()
             val address = findViewById<EditText>(R.id.input_address).text.toString()
-            val isChecked = findViewById<CheckBox>(R.id.input_checked).isChecked ?: false
+            val isChecked = findViewById<CheckBox>(R.id.input_checked).isChecked  ?:false
             val student = Student(name, id, phone, address , isChecked)
             Model.shared.addStudent(student)
             finish()

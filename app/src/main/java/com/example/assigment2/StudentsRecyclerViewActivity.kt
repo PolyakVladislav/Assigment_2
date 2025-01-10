@@ -57,12 +57,12 @@ class StudentsRecyclerViewActivity : AppCompatActivity() {
         private var idTextView: TextView? = null
         private var checkBox: CheckBox? = null
         private var student: Student? = null
+        private var student_list_row: View = itemView.findViewById(R.id.student_list_row)
 
         init {
             nameTextView = itemView.findViewById(R.id.student_row_name_view)
             idTextView = itemView.findViewById(R.id.student_row_id_view)
             checkBox = itemView.findViewById(R.id.student_row_check_box)
-
             checkBox?.apply{
                 setOnClickListener{ view ->
                     (tag as? Int)?.let{
@@ -70,6 +70,21 @@ class StudentsRecyclerViewActivity : AppCompatActivity() {
                     }
                 }
             }
+            itemView.setOnClickListener{
+                adapterPosition
+            }
+            student_list_row.setOnClickListener{
+                val intent = Intent(itemView.context, Student_Details_Activity::class.java).apply {
+                    putExtra("student_id", student?.id)
+                    putExtra("student_name", student?.name)
+                    putExtra("student_phone", student?.phone)
+                    putExtra("student_address", student?.address)
+                    putExtra("student_checked", student?.isChecked)
+                    putExtra("StudentIndex", adapterPosition)
+                }
+                itemView.context.startActivity(intent)
+            }
+
         }
         fun bind(student: Student?, position: Int) {
             this.student = student
